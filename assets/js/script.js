@@ -110,11 +110,7 @@ digitBtn.addEventListener("click", function () {
   }
 });
 
-// Add event listener to generate button
-// generate.addEventListener("click", generatePassword);
-// console.log("Password Generated!");
-
-//generate button event listener at the end, so all criteria can be considered.
+//generate event listener parsed at the end for performance.
 const generate = document.querySelector("#generate");
 generate.addEventListener("click", function () {
   const password = generatePassword();
