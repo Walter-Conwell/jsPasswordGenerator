@@ -1,23 +1,16 @@
 // Assignment Code
 // Assigning the variables here is important so that the criterion is interpreted before the buttons. This way, the buttons can have functionality when the interpreter gets to their respective lines.
 let includeSpecChars = true;
-
 let includeupCase = true;
 let includelowCase = true;
 let includedigit = true;
-
 let specCharsCriteria = "!@#$%^&*()_+,./;'[]\\<>?:\"{}|=-`~";
-
 let noSpecCharsCriteria =
   "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890";
-
 let lowCaseCriteria = "qwertyuiopasdfghjklzxcvbnm";
-
 let upCaseCriteria = "QWERTYUIOPASODFGHJKLZXCVNM";
-
 let digitCriteria = "1234567890";
-
-let lengthCriteria = Math.floor(Math.random() * (128 - 8 + 1)) + 8;
+let lengthCriteria = 8;
 
 // I had a hard time getting the new password to generate within the text area properly, to fix this, i set the criteriaBtn's to boolean values, as well as set the newPassword function to return an empty string, in which the newPassword would be called into.
 
@@ -37,10 +30,10 @@ const generatePassword = function newPassword() {
   }
 
   let password = "";
-  for (let i = 0; i < lengthCriteria; i++) {
-    const randomIndex = Math.floor(Math.random() * charSet.length);
-    password += charSet[randomIndex];
-  }
+  // for (let i = 0; i < lengthCriteria; i++) {
+  //   // const randomIndex = Math.floor(Math.random() * charSet.length);
+  //   password += charSet[randomIndex];
+  // }
 
   return password;
 };
@@ -95,7 +88,8 @@ upCaseBtn.addEventListener("click", function () {
 
 const lengthBtn = document.getElementById("lengthBtn");
 lengthBtn.addEventListener("click", function () {
-  lengthCriteria = Math.floor(Math.random() * (128 - 8 + 1)) + 8;
+  const lengthInput = document.getElementById("passwordLength");
+  lengthCriteria = parseInt(lengthInput.value);
   console.log("Length criteria updated:", lengthCriteria);
 });
 

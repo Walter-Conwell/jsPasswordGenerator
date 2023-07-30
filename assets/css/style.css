@@ -103,6 +103,7 @@ header {
   text-align: center;
   cursor: pointer;
 }
+
 /* early on, i ran into a problem with the .criteriaBtn's, in which they would be displaced after the .generate event listener was triggered. */
 /* to fix this, i set display to inline-block. */
 
