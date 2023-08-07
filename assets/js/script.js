@@ -1,5 +1,14 @@
+//  to do (to fix)
+// 1. prompt for password options (no buttons, PROMPT user with alerts instead)
+// 2. require minimum length. (get rid of buttons)
+// 3. require maximum length
+// 4. generate valid password
+// 5. fix file structure
+// 6. put screenshot, live link, and description in readme.
+// 7. make sure password displays properly.
+
 // Assignment Code
-// Assigning the variables here is important so that the criterion is interpreted before the buttons. This way, the buttons can have functionality when the interpreter gets to their respective lines.
+
 let includeSpecChars = true;
 let includeupCase = true;
 let includelowCase = true;
@@ -30,10 +39,6 @@ const generatePassword = function newPassword() {
   }
 
   let password = "";
-  // for (let i = 0; i < lengthCriteria; i++) {
-  //   // const randomIndex = Math.floor(Math.random() * charSet.length);
-  //   password += charSet[randomIndex];
-  // }
 
   return password;
 };
@@ -60,9 +65,6 @@ specChars.addEventListener("click", function () {
 });
 
 const noSpecChars = document.getElementById("noSpecCharsBtn");
-
-// a bit into development here, i realized that the 'noSpecChars' button is redundant due to specChars being a boolean value.
-// noSpecCharsBtn.addEventListener("click", function () {});
 
 const lowCase = document.getElementById("lowCaseBtn");
 lowCaseBtn.addEventListener("click", function () {
