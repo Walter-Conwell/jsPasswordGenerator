@@ -1,6 +1,6 @@
 //  to do (to fix)
 // 1. prompt for password options (no buttons, PROMPT user with alerts instead)
-// 2. require minimum length. (get rid of buttons)
+// 2. require minimum length. (get rid of buttons, use an array, and randomly iterate through.)
 // 3. require maximum length
 // 4. generate valid password
 // 5. fix file structure
@@ -9,17 +9,93 @@
 
 // Assignment Code
 
-let includeSpecChars = true;
-let includeupCase = true;
-let includelowCase = true;
-let includedigit = true;
-let specCharsCriteria = "!@#$%^&*()_+,./;'[]\\<>?:\"{}|=-`~";
-let noSpecCharsCriteria =
-  "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890";
-let lowCaseCriteria = "qwertyuiopasdfghjklzxcvbnm";
-let upCaseCriteria = "QWERTYUIOPASODFGHJKLZXCVNM";
-let digitCriteria = "1234567890";
-let lengthCriteria = 8;
+let specCharsCriteria = [
+  "!",
+  "@",
+  "#",
+  "$",
+  "%",
+  "^",
+  "&",
+  "*",
+  "(",
+  ")",
+  "_",
+  "+",
+  ",",
+  ".",
+  "/",
+  ";",
+  "<",
+  ">",
+  "?",
+  ":",
+  "|",
+  "=",
+  "-",
+];
+
+// got rid of noSpecCharsCriteria variable, as it is redudant.
+
+let lowCaseCriteria = [
+  "q",
+  "w",
+  "e",
+  "r",
+  "t",
+  "y",
+  "u",
+  "i",
+  "o",
+  "p",
+  "a",
+  "s",
+  "d",
+  "f",
+  "g",
+  "h",
+  "j",
+  "k",
+  "l",
+  "z",
+  "x",
+  "c",
+  "v",
+  "b",
+  "n",
+  "m",
+];
+
+let upCaseCriteria = [
+  "Q",
+  "W",
+  "E",
+  "R",
+  "T",
+  "Y",
+  "U",
+  "I",
+  "O",
+  "P",
+  "A",
+  "S",
+  "O",
+  "D",
+  "F",
+  "G",
+  "H",
+  "J",
+  "K",
+  "L",
+  "Z",
+  "X",
+  "C",
+  "V",
+  "N",
+  "M",
+];
+
+let digitCriteria = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 
 // I had a hard time getting the new password to generate within the text area properly, to fix this, i set the criteriaBtn's to boolean values, as well as set the newPassword function to return an empty string, in which the newPassword would be called into.
 
