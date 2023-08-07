@@ -9,6 +9,12 @@
 
 // Assignment Code
 // variable declarations
+let lengthConfirm = "";
+let specCharsConfirm;
+let lowCaseConfirm;
+let upCaseConfirm;
+let digitConfirm;
+
 let specCharsCriteria = [
   "!",
   "@",
@@ -95,29 +101,13 @@ let upCaseCriteria = [
 
 let digitCriteria = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 
-// I had a hard time getting the new password to generate within the text area properly, to fix this, i set the criteriaBtn's to boolean values, as well as set the newPassword function to return an empty string, in which the newPassword would be called into.
+function generatePassword() {}
 
-const generatePassword = function newPassword() {
-  let charSet = "";
-  if (includeSpecChars) {
-    charSet += specCharsCriteria;
-  }
-  if (includelowCase) {
-    charSet += lowCaseCriteria;
-  }
-  if (includeupCase) {
-    charSet += upCaseCriteria;
-  }
-  if (includedigit) {
-    charSet += digitCriteria;
-  }
+//   let password = "";
 
-  let password = "";
+//   return password;
+// };
 
-  return password;
-};
-
-//writepassword is the function that generates the password
 // Write password to the #password input
 function writePassword() {
   const password = generatePassword();
@@ -125,69 +115,3 @@ function writePassword() {
   passwordText.value = password;
   passwordText.style.display = "block";
 }
-
-const specChars = document.getElementById("specCharsBtn");
-
-specChars.addEventListener("click", function () {
-  if (includeSpecChars) {
-    includeSpecChars = false;
-    console.log("Special characters removed");
-  } else {
-    includeSpecChars = true;
-    console.log("Special characters included");
-  }
-});
-
-// lowercase event listener
-// const lowCase = document.getElementById("lowCaseBtn");
-// lowCaseBtn.addEventListener("click", function () {
-//   if (includelowCase) {
-//     includelowCase = false;
-//     console.log("lowCase removed");
-//   } else {
-//     includelowCase = true;
-//     console.log("lowCase included");
-//   }
-// });
-
-// upCase event listener
-// const upCase = document.getElementById("upCaseBtn");
-// upCaseBtn.addEventListener("click", function () {
-//   if (includeupCase) {
-//     includeupCase = false;
-//     console.log("upCase removed");
-//   } else {
-//     includeupCase = true;
-//     console.log("upCase included");
-//   }
-// });
-
-// length event listener
-// const lengthBtn = document.getElementById("lengthBtn");
-// lengthBtn.addEventListener("click", function () {
-//   const lengthInput = document.getElementById("passwordLength");
-//   lengthCriteria = parseInt(lengthInput.value);
-//   console.log("Length criteria updated:", lengthCriteria);
-// });
-
-// digit event listener
-// const digit = document.getElementById("digitBtn");
-// digitBtn.addEventListener("click", function () {
-//   if (includedigit) {
-//     includedigit = false;
-//     console.log("digit removed");
-//   } else {
-//     includedigit = true;
-//     console.log("digit included");
-//   }
-// });
-
-//generate event listener parsed at the end for performance.
-// const generate = document.querySelector("#generate");
-// generate.addEventListener("click", function () {
-//   const password = generatePassword();
-//   var passwordText = document.querySelector("#password");
-//   passwordText.value = password;
-//   passwordText.style.display = "block";
-//   console.log("Password Generated:", password);
-// });
