@@ -101,7 +101,19 @@ let upCaseCriteria = [
 
 let digitCriteria = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 
-function generatePassword() {}
+// function: displays prompt for user input.
+function generatePassword() {
+  const lengthConfirm = prompt("Enter Your Desired Password Length...");
+
+  while (lengthConfirm <= 8 || lengthConfirm >= 128) {
+    alert("The Password Length MUST be within 8-128 Characters!");
+    const lengthConfirm = prompt("Enter Your Desired Password Length...");
+  }
+  let specCharsConfirm; = confirm("Hit OK To Allow Special Characters In Your Password");
+  let lowCaseConfirm; = confirm("Hit OK To Allow Lower Case Characters In Your Password");
+  let upCaseConfirm; = confirm("Hit OK To Allow Upper Case Characters In Your Password");
+  let digitConfirm; = confirm("Hit OK To Allow Digits In Your Password");
+}
 
 //   let password = "";
 
