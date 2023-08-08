@@ -1,5 +1,4 @@
 //  to do (to fix)
-// 4. generate valid password
 // 5. fix file structure
 // 6. put screenshot, live link, and description in readme.
 // 7. make sure password displays properly.
@@ -12,6 +11,7 @@ let lowCaseConfirm;
 let upCaseConfirm;
 let digitConfirm;
 let generatedChars = [];
+let newPassword = "";
 
 let specCharsCriteria = [
   "!",
@@ -101,7 +101,7 @@ let digitCriteria = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 
 // function: displays prompt for user input.
 function generatePassword() {
-  const lengthConfirm = prompt("Enter Your Desired Password Length...");
+  lengthConfirm = prompt("Enter Your Desired Password Length...");
   while (lengthConfirm <= 8 || lengthConfirm >= 128) {
     alert("The Password Length MUST be within 8-128 Characters!");
     console.log("alert working");
@@ -133,23 +133,24 @@ function generatePassword() {
   if (digitConfirm) {
     generatedChars = generatedChars.concat(digitCriteria);
   }
+  for (var i = 0; i < lengthConfirm; i++) {
+    newPassword =
+      newPassword +
+      generatedChars[Math.floor(Math.random() * generatedChars.length)];
+  }
+  console.log("passwordGenerated");
+  return newPassword;
 }
-
-//   let password = "";
-
-//   return password;
-// };
 
 // Write password to the #password input
 function writePassword() {
   const password = generatePassword();
-  var passwordText = document.querySelector("#password");
-  passwordText.value = password;
+  var passwordText = document.querySelector("#newPassword");
+  passwordText.value = newPassword;
   passwordText.style.display = "block";
 }
 
 document.querySelector("#generate").addEventListener("click", writePassword);
 
 // progress - for version control..
-// if writePassword is used here, undefined is returned. password is calculated, but interpreter doesn't know what to display.
-// currently... undefined is still being returned. no password yet.
+// currently working. Will clean up code for readability, and will add some styling flare next.
