@@ -11,6 +11,7 @@ let specCharsConfirm;
 let lowCaseConfirm;
 let upCaseConfirm;
 let digitConfirm;
+let generatedChars = [];
 
 let specCharsCriteria = [
   "!",
@@ -107,7 +108,7 @@ function generatePassword() {
     const lengthConfirm = prompt("Enter Your Desired Password Length...");
     console.log("prompt working");
   }
-  // error -> variables are declared but never read...
+
   let specCharsConfirm = confirm(
     "Hit OK To Allow Special Characters In Your Password"
   );
@@ -118,6 +119,20 @@ function generatePassword() {
     "Hit OK To Allow Upper Case Characters In Your Password"
   );
   let digitConfirm = confirm("Hit OK To Allow Digits In Your Password");
+
+  // if confirm variables are true, concatenate confirm arrays into the new password to be displayed (which is a string)
+  if (specCharsConfirm) {
+    generatedChars = generatedChars.concat(specCharsCriteria);
+  }
+  if (lowCaseConfirm) {
+    generatedChars = generatedChars.concat(lowCaseCriteria);
+  }
+  if (upCaseConfirm) {
+    generatedChars = generatedChars.concat(upCaseCriteria);
+  }
+  if (digitConfirm) {
+    generatedChars = generatedChars.concat(digitCriteria);
+  }
 }
 
 //   let password = "";
@@ -137,4 +152,4 @@ document.querySelector("#generate").addEventListener("click", writePassword);
 
 // progress - for version control..
 // if writePassword is used here, undefined is returned. password is calculated, but interpreter doesn't know what to display.
-// if generatePassword is used, nothing is returned. password isn't properly generated. criteria is considered, but not calculated.
+// currently... undefined is still being returned. no password yet.
