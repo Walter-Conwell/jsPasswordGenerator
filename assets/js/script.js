@@ -1,7 +1,4 @@
 //  to do (to fix)
-// 1. prompt for password options (no buttons, PROMPT user with alerts instead)
-// 2. require minimum length. (get rid of buttons, use an array, and randomly iterate through.)
-// 3. require maximum length
 // 4. generate valid password
 // 5. fix file structure
 // 6. put screenshot, live link, and description in readme.
@@ -104,15 +101,23 @@ let digitCriteria = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 // function: displays prompt for user input.
 function generatePassword() {
   const lengthConfirm = prompt("Enter Your Desired Password Length...");
-
   while (lengthConfirm <= 8 || lengthConfirm >= 128) {
     alert("The Password Length MUST be within 8-128 Characters!");
+    console.log("alert working");
     const lengthConfirm = prompt("Enter Your Desired Password Length...");
+    console.log("prompt working");
   }
-  let specCharsConfirm; = confirm("Hit OK To Allow Special Characters In Your Password");
-  let lowCaseConfirm; = confirm("Hit OK To Allow Lower Case Characters In Your Password");
-  let upCaseConfirm; = confirm("Hit OK To Allow Upper Case Characters In Your Password");
-  let digitConfirm; = confirm("Hit OK To Allow Digits In Your Password");
+  // error -> variables are declared but never read...
+  let specCharsConfirm = confirm(
+    "Hit OK To Allow Special Characters In Your Password"
+  );
+  let lowCaseConfirm = confirm(
+    "Hit OK To Allow Lower Case Characters In Your Password"
+  );
+  let upCaseConfirm = confirm(
+    "Hit OK To Allow Upper Case Characters In Your Password"
+  );
+  let digitConfirm = confirm("Hit OK To Allow Digits In Your Password");
 }
 
 //   let password = "";
@@ -127,3 +132,9 @@ function writePassword() {
   passwordText.value = password;
   passwordText.style.display = "block";
 }
+
+document.querySelector("#generate").addEventListener("click", writePassword);
+
+// progress - for version control..
+// if writePassword is used here, undefined is returned. password is calculated, but interpreter doesn't know what to display.
+// if generatePassword is used, nothing is returned. password isn't properly generated. criteria is considered, but not calculated.
