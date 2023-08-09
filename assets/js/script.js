@@ -13,6 +13,7 @@ let digitConfirm;
 let generatedChars = [];
 let newPassword = "";
 
+// array declarations
 let specCharsCriteria = [
   "!",
   "@",
@@ -102,10 +103,10 @@ let digitCriteria = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 // function: displays prompt for user input.
 function generatePassword() {
   lengthConfirm = prompt("Enter Your Desired Password Length...");
-  while (lengthConfirm <= 8 || lengthConfirm >= 128) {
+  while (lengthConfirm <= 7 || lengthConfirm >= 129) {
     alert("The Password Length MUST be within 8-128 Characters!");
     console.log("alert working");
-    const lengthConfirm = prompt("Enter Your Desired Password Length...");
+    let lengthConfirm = prompt("Enter Your Desired Password Length...");
     console.log("prompt working");
   }
 
@@ -119,8 +120,9 @@ function generatePassword() {
     "Hit OK To Allow Upper Case Characters In Your Password"
   );
   let digitConfirm = confirm("Hit OK To Allow Digits In Your Password");
+  // error -> when all criteriaConfirm are set to cancel, undefined is returned.
 
-  // if confirm variables are true, concatenate confirm arrays into the new password to be displayed (which is a string)
+  // if confirm variables are true ^, concatenate confirm arrays into the new password to be displayed (which is a string)
   if (specCharsConfirm) {
     generatedChars = generatedChars.concat(specCharsCriteria);
   }
@@ -150,6 +152,7 @@ function writePassword() {
   passwordText.style.display = "block";
 }
 
+// event listener for generate button.
 document.querySelector("#generate").addEventListener("click", writePassword);
 
 // progress - for version control..
