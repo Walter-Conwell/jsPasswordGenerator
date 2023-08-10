@@ -2,6 +2,8 @@
 // 5. fix file structure
 // 6. put screenshot, live link, and description in readme.
 // 7. make sure password displays properly.
+// error -> after one password is generated, new password is just concatenated on. clear local storage, on regenerate?
+
 
 // Assignment Code
 // variable declarations
@@ -121,7 +123,19 @@ function generatePassword() {
   );
   let digitConfirm = confirm("Hit OK To Allow Digits In Your Password");
   // error -> when all criteriaConfirm are set to cancel, undefined is returned.
-
+while(lowCaseConfirm === false && digitConfirm === false && upCaseConfirm === false && specCharsConfirm === false) {
+  alert("At least one rule is needed for a new password.")
+  let specCharsConfirm = confirm(
+    "Hit OK To Allow Special Characters In Your Password"
+  );
+  let lowCaseConfirm = confirm(
+    "Hit OK To Allow Lower Case Characters In Your Password"
+  );
+  let upCaseConfirm = confirm(
+    "Hit OK To Allow Upper Case Characters In Your Password"
+  );
+  let digitConfirm = confirm("Hit OK To Allow Digits In Your Password");
+}
   // if confirm variables are true ^, concatenate confirm arrays into the new password to be displayed (which is a string)
   if (specCharsConfirm) {
     generatedChars = generatedChars.concat(specCharsCriteria);
